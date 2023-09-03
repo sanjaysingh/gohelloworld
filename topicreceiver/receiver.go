@@ -2,13 +2,16 @@ package main
 
 import (
 	"context"
+	"os"
 	"time"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/messaging/azservicebus"
+	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 )
 
 func main() {
+	log.Logger = zerolog.New(os.Stdout).With().Caller().Timestamp().Logger()
 	log.Info().
 		Msg("Hello World! This is GO.")
 
